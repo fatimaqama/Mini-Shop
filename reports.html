@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports | FreshMart</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link id="favicon" rel="icon" type="image/svg+xml" href="assets/logos/icons/favicon.svg">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="reports-page dark">
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">
+      <img src="assets/logos/logo-light.svg" alt="FreshMart Logo">
+      <h2>FreshMart</h2>
+      <p>Mini Shop System</p>
+    </div>
+
+    <ul class="sidebar-menu">
+      <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+      <li><a href="products.html"><i class="fas fa-box-open"></i> Products</a></li>
+      <li><a href="customers.html"><i class="fas fa-users"></i> Customers</a></li>
+      <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+      <li class="active"><a href="reports.html"><i class="fas fa-chart-line"></i> Reports</a></li>
+      <li><a href="inventory.html"><i class="fas fa-warehouse"></i> Inventory</a></li>
+     <li><a href="settings.html"><i class="fas fa-sliders-h"></i> Settings</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div>
+        <h2><i class="fas fa-chart-line"></i> Reports & Analytics</h2>
+        <p class="subtitle">Business performance overview</p>
+      </div>
+
+      <div class="topbar-buttons">
+            <button class="theme-toggle" id="darkToggle">
+            <span class="icon"><i class="fas fa-circle-half-stroke"></i></span>
+<span class="text">Theme</span>
+
+          </button>
+
+        <button onclick="logout()" class="logout-btn">
+          Logout
+        </button>
+      </div>
+    </header>
+
+    <!-- SUMMARY CARDS -->
+<section class="dashboard">
+  <div class="reports-chart-card">
+
+    <h3><i class="fas fa-chart-column"></i> Inventory Analytics</h3>
+    <canvas id="reportChart"></canvas>
+  </div>
+
+  <div class="kpi-row">
+   <div class="card">
+  <h3><i class="fas fa-money-bill-trend-up"></i> Revenue</h3>
+  <h1 class="number" id="salesCard">£0.00</h1>
+  <p>Total Revenue</p>
+  <div class="trend" id="revenueTrend"></div>
+</div>
+
+
+    <div class="card">
+      <h3><i class="fas fa-box-open"></i> Products</h3>
+      <h1 class="number" id="productCard">2</h1>
+      <p>Total Products</p>
+      <div class="trend trend-neutral"><i class="fas fa-circle"></i> Stable inventory</div>
+    </div>
+
+    <div class="card">
+      <h3><i class="fas fa-triangle-exclamation"></i> Low Stock</h3>
+      <h1 class="number" id="lowCard">0</h1>
+      <p>Need Restocking</p>
+    </div>
+
+    <div class="card">
+      <h3><i class="fas fa-circle-xmark"></i> Out of Stock</h3>
+      <h1 class="number" id="outCard">0</h1>
+      <p>Unavailable</p>
+    </div>
+  </div>
+</section>
+
+
+
+  </main>
+</div>
+
+<!-- Scripts -->
+<script src="reports.js"></script>
+<script src="theme.js" defer></script>
+
+<script>
+  // Auto-highlight active sidebar link
+  const currentPage = window.location.pathname.split("/").pop();
+  document.querySelectorAll(".sidebar-menu a").forEach(link => {
+    if (link.getAttribute("href") === currentPage) {
+      link.parentElement.classList.add("active");
+    } else {
+      link.parentElement.classList.remove("active");
+    }
+  });
+
+  window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+
+</body>
+</html>

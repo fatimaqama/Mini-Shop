@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Login | FreshMart</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <link id="favicon" rel="icon" type="image/svg+xml" href="assets/logos/icons/favicon.svg">
+</head>
+
+<body class="login-body">
+
+  <!-- LOGIN CARD -->
+  <div class="login-box">
+<div class="login-header">
+  <h2>
+    <img src="assets/logos/logo-light.svg" alt="FreshMart Logo">
+    FreshMart Login
+  </h2>
+  <p class="subtitle">Sign in to access your dashboard</p>
+</div>
+
+
+    <div class="login-form">
+
+      <label>Username</label>
+      <input id="username" type="text" placeholder="Enter username">
+
+      <label>Password</label>
+      <input id="password" type="password" placeholder="Enter password">
+
+      <button id="loginBtn" class="login-btn">
+        Login
+      </button>
+
+    </div>
+
+    <p class="login-footer">
+      © 2026 FreshMart Management System
+    </p>
+
+  </div>
+
+  <!-- LOGIN SCRIPT -->
+  <script src="login.js"></script>
+
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+  </script>
+
+</body>
+</html>

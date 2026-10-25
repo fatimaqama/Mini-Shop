@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | FreshMart</title>
+
+    <!-- LOGIN PROTECTION -->
+    <script src="auth.js"></script>
+
+    <!-- Icons + Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="Settings.css">
+
+    <link id="favicon" rel="icon" type="image/svg+xml" href="assets/logos/icons/favicon.svg">
+</head>
+
+<body class="settings-page">
+
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <div class="logo">
+        <img src="assets/logos/logo-light.svg" alt="FreshMart Logo">
+        <h3>FreshMart</h3>
+        <p class="tagline">Mini Shop System</p>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+        <li><a href="products.html"><i class="fas fa-box-open"></i> Products</a></li>
+        <li><a href="customers.html"><i class="fas fa-users"></i> Customers</a></li>
+        <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+        <li><a href="reports.html"><i class="fas fa-chart-line"></i> Reports</a></li>
+        <li><a href="inventory.html"><i class="fas fa-warehouse"></i> Inventory</a></li>
+        <li class="active"><a href="settings.html"><i class="fas fa-sliders-h"></i> Settings</a></li>
+
+    </ul>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+    <header class="topbar">
+        <div class="left">
+            <h2><i class="fas fa-cog settings-icon"></i> Settings</h2>
+            <p class="subtitle">Manage your account and preferences</p>
+        </div>
+
+        <div class="header-right">
+                 <button class="theme-toggle" id="darkToggle">
+            <span class="icon"><i class="fas fa-circle-half-stroke"></i></span>
+<span class="text">Theme</span>
+
+          </button>
+            <button onclick="logout()">Logout</button>
+        </div>
+    </header>
+
+    <div class="settings-container">
+        <h2 class="section-title"><i class="fas fa-tools settings-icon"> 
+         </i>Manage your account & preferences</h2>
+
+        <div class="settings-grid">
+
+            <!-- Profile -->
+            <div class="setting-card">
+                <h3>Profile</h3>
+                <p>Update your name, email, phone, and address.</p>
+                <button class="btn-edit">Edit Profile</button>
+            </div>
+
+            <!-- Security -->
+            <div class="setting-card">
+                <h3>Security</h3>
+                <p>Change password or enable two‑factor authentication.</p>
+                <button class="btn-secure">Manage Security</button>
+            </div>
+
+            <!-- Notifications -->
+            <div class="setting-card">
+                <h3>Notifications</h3>
+                <p>Manage alerts and system updates.</p>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- EDIT PROFILE MODAL -->
+<div class="modal" id="editProfileModal">
+  <div class="modal-content">
+    <h2><i class="fas fa-user-edit"></i> Edit Profile</h2>
+
+    <form id="editProfileForm">
+      <label>Full Name</label>
+      <input type="text" id="profileName" required>
+
+      <label>Email</label>
+      <input type="email" id="profileEmail" required>
+
+      <label>Phone Number</label>
+      <input type="text" id="profilePhone" required>
+
+      <label>Address</label>
+      <input type="text" id="profileAddress" required>
+
+      <label>Profile Picture</label>
+      <input type="file" id="profileAvatar" accept="image/*">
+
+      <div class="modal-actions">
+        <button type="submit" class="save-btn">Save Changes</button>
+        <button type="button" class="close-modal">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- SECURITY MODAL -->
+<div class="modal" id="securityModal">
+  <div class="modal-content">
+    <h2><i class="fas fa-shield-alt"></i> Security Settings</h2>
+
+    <form id="securityForm">
+    <label>Current Password</label>
+<div class="password-wrapper">
+  <input type="password" id="currentPassword" required>
+  <i class="fas fa-eye" data-target="currentPassword"></i>
+</div>
+
+<label>New Password</label>
+<div class="password-wrapper">
+  <input type="password" id="newPassword" required>
+  <i class="fas fa-eye" data-target="newPassword"></i>
+</div>
+
+<label>Confirm Password</label>
+<div class="password-wrapper">
+  <input type="password" id="confirmPassword" required>
+  <i class="fas fa-eye" data-target="confirmPassword"></i>
+</div>
+
+      <div class="security-options">
+        <label class="switch">
+          <input type="checkbox" id="enable2FA">
+          <span class="slider"></span>
+        </label>
+        <span>Enable Two‑Factor Authentication</span>
+      </div>
+
+      <div class="modal-actions">
+        <button type="submit" class="save-btn">Save Changes</button>
+        <button type="button" class="close-modal">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<!-- JS -->
+<script src="script.js"></script>
+<script src="theme.js"></script>
+<script src="settings.js"></script>
+
+</body>
+</html>

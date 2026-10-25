@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products | FreshMart</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="theme.css" />
+  <link id="favicon" rel="icon" type="image/svg+xml" href="assets/logos/icons/favicon.svg" />
+</head>
+
+<body class="products-page">
+
+
+  <div class="app">
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+      <div class="sidebar-logo">
+        <img src="assets/logos/logo-light.svg" alt="FreshMart Logo" class="logo-glow">
+        <h2>FreshMart</h2>
+        <p>Mini Shop System</p>
+      </div>
+
+      <ul class="sidebar-menu">
+        <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+      <li class = "active"><a href="products.html"><i class="fas fa-box-open"></i> Products</a></li>
+        <li><a href="customers.html"><i class="fas fa-users"></i> Customers</a></li>
+        <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+        <li><a href="reports.html"><i class="fas fa-chart-line"></i> Reports</a></li>
+        <li><a href="inventory.html"><i class="fas fa-warehouse"></i> Inventory</a></li>
+       <li><a href="settings.html"><i class="fas fa-sliders-h"></i> Settings</a></li>
+      </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+      <main class="content">
+        <!-- TOP BAR -->
+        <header class="topbar">
+          <h2><i class="fas fa-box-open"></i> Products</h2>
+          <p class="subtitle">Manage all products in your supermarket.</p>
+          <button onclick="logout()">Logout</button>
+        </header>
+
+        <!-- TOOLBAR -->
+        <div class="toolbar">
+          <button class="theme-toggle" id="darkToggle">
+            <span class="icon"><i class="fas fa-circle-half-stroke"></i></span>
+<span class="text">Theme</span>
+
+          </button>
+
+          <button id="openModal"><i class="fas fa-plus"></i> Add Product</button>
+          <button id="resetProducts"><i class="fas fa-trash"></i> Reset Products</button>
+
+         <div class="search-bar">
+  <input type="text" placeholder="Search products" />
+  <i class="fas fa-search"></i>
+</div>
+
+        <!-- PRODUCT TABLE -->
+        <table class="product-table">
+          <tr>
+            <th>Product</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </table>
+
+        <!-- MODAL -->
+        <div id="productModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2><i class="fas fa-box-open"></i> Add New Product</h2>
+
+            <label>Product Name</label>
+            <input id="productName" type="text" placeholder="Enter product name" />
+
+            <label>Category</label>
+            <select id="category">
+              <option>Dairy</option>
+              <option>Bakery</option>
+              <option>Fruit & Vegetables</option>
+              <option>Frozen</option>
+              <option>Drinks</option>
+              <option>Snacks</option>
+            </select>
+
+            <label>Price (£)</label>
+            <input id="price" type="number" />
+
+            <label>Stock Quantity</label>
+            <input id="stock" type="number" />
+
+            <button id="saveProduct" class="save-btn">Save Product</button>
+          </div>
+        </div>
+      </main>
+      <!-- Footer -->
+    <footer>
+      © 2026 FreshMart Management System
+      <br><br>
+      Developed by Fatima Qamar
+    </footer>
+    </div>
+     <div id="toast"></div>
+     
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script src="theme.js" defer></script>
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+  </script>
+   
+</body>
+</html>

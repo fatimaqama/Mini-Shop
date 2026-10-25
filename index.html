@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreshMart Management System</title>
+
+  <!-- GLOBAL LOGIN PROTECTION -->
+  <script src="auth.js"></script>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CSS (Correct Order) -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="theme.css">
+
+  <link id="favicon" rel="icon" type="image/svg+xml" href="assets/logos/icons/favicon.svg">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="dashboard-page">
+<div class="app">
+  <!-- ===========================
+       SIDEBAR
+  ============================ -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">
+      <img src="assets/logos/logo-light.svg" alt="FreshMart Logo" class="logo-glow">
+      <h2>FreshMart</h2>
+      <p>Mini Shop System</p>
+    </div>
+
+    <ul class="sidebar-menu">
+     <li class="active"><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+      <li><a href="products.html"><i class="fas fa-box-open"></i> Products</a></li>
+      <li><a href="customers.html"><i class="fas fa-users"></i> Customers</a></li>
+      <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+      <li><a href="reports.html"><i class="fas fa-chart-line"></i> Reports</a></li>
+      <li><a href="inventory.html"><i class="fas fa-warehouse"></i> Inventory</a></li>
+     <li><a href="settings.html"><i class="fas fa-sliders-h"></i> Settings</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===========================
+       MAIN CONTENT
+  ============================ -->
+  <div class="main">
+    <!-- Top Bar -->
+    <header class="topbar">
+      <div class="left">
+        <h2><i class="fas fa-home"></i> Dashboard</h2>
+        <p class="subtitle">Welcome back to FreshMart.</p>
+      </div>
+
+      <div class="header-right">
+        <div class="topbar-buttons">
+          <button class="theme-toggle" id="darkToggle">
+           <span class="icon"><i class="fas fa-circle-half-stroke"></i></span>
+           <span class="text">Theme</span>
+
+          <button onclick="logout()">Logout</button>
+        </div>
+        <div class="profile-card">
+          <img src="avatar.jpg" class="avatar" alt="Admin Avatar">
+          <div class="profile-info">
+            <h3 id="profileName">Admin</h3>
+            <p>Admin</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Search -->
+    <div class="search-bar">
+   <input type="text" placeholder="Search products, customers..." />
+   <i class="fas fa-search"></i>
+   </div>
+
+
+    <!-- Dashboard -->
+   <div class="dashboard card-container">
+
+
+      
+   <div class="overview-section">
+   <h2 class="section-title">Today's Overview</h2>
+    <div class="overview-cards"></div>
+        <div class="card">
+          <h3><i class="fas fa-coins"></i> Total Sales</h3>
+          <h1 id="totalSalesCard" class="number">£0.00</h1>
+          <p>Total sales this month</p>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-shopping-cart"></i> Orders</h3>
+          <h1 id="totalOrdersCard" class="number">0</h1>
+          <p>Orders completed</p>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-users"></i> Customers</h3>
+          <h1 id="totalCustomersCard" class="number">0</h1>
+          <p>Registered customers</p>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-box-open"></i> Products</h3>
+          <h1 class="number" id="totalProducts">0</h1>
+          <p>Available products</p>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-exclamation-triangle"></i> Low Stock</h3>
+          <h1 class="number" id="lowStock">0</h1>
+          <p>Products running low</p>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-times-circle"></i> Out of Stock</h3>
+          <h1 class="number" id="outStock">0</h1>
+          <p>Products unavailable</p>
+        </div>
+
+      </div>
+    </section>
+<!-- Quick Actions -->
+<section class="dashboard-bottom">
+
+  <div class="quick-activity">
+
+    <div class="quick-actions">
+      <h2>Quick Actions</h2>
+      <div class="actions">
+        <button class="btn-action" id="addProduct">Add Product</button>
+        <button class="btn-action" id="addCustomer">Add Customer</button>
+        <button class="btn-action" id="createOrder">Create Order</button>
+        <button class="btn-action" id="viewReports">View Reports</button>
+      </div>
+    </div>
+
+    <div class="recent-activity">
+      <h2>Recent Activity</h2>
+      <p><i class="fas fa-user-check"></i> New customer registered.</p>
+      <p><i class="fas fa-box-open"></i> Stock updated successfully.</p>
+      <p><i class="fas fa-shopping-cart"></i> Order #1042 completed.</p>
+      <p><i class="fas fa-coins"></i> Daily sales target achieved.</p>
+    </div>
+
+  </div>
+
+  <div class="stock-overview">
+    <h2><i class="fas fa-chart-line"></i> Stock Overview</h2>
+    <canvas id="stockChart"></canvas>
+  </div>
+
+</section>
+
+
+
+
+      <!-- PRODUCT MODAL -->
+      <div class="modal" id="productModal">
+        <div class="modal-content">
+          <h2><i class="fas fa-box-open"></i> Add Product</h2>
+
+          <label>Product Name</label>
+          <input type="text" id="productName">
+
+          <label>Category</label>
+          <select id="category">
+            <option value="Fruit & Vegetables">Fruit & Vegetables</option>
+            <option value="Dairy">Dairy</option>
+            <option value="Bakery">Bakery</option>
+            <option value="Frozen">Frozen</option>
+            <option value="Drinks">Drinks</option>
+            <option value="Snacks">Snacks</option>
+          </select>
+
+          <label>Price (£)</label>
+          <input type="number" id="price">
+
+          <label>Stock Quantity</label>
+          <input type="number" id="stock">
+
+          <button class="save-btn" id="saveProduct">Save Product</button>
+          <button class="close-modal">Close</button>
+        </div>
+      </div>
+
+      <!-- CUSTOMER MODAL -->
+      <div class="modal" id="customerModal">
+        <div class="modal-content">
+          <h2><i class="fas fa-user-plus"></i> Add Customer</h2>
+
+          <label>Full Name</label>
+          <input type="text" id="customerName">
+
+          <label>Email</label>
+          <input type="email" id="customerEmail">
+
+          <label>Phone Number</label>
+          <input type="text" id="customerPhone">
+
+          <label>Address</label>
+          <input type="text" id="customerAddress" placeholder="Address">
+
+          <label>Number of Orders</label>
+          <input type="number" id="customerOrders" min="0" value="0">
+
+          <label>Customer Loyalty</label>
+          <select id="customerLoyalty">
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+            <option value="VIP">VIP</option>
+          </select>
+
+          <button class="save-btn" id="saveCustomer">Save Customer</button>
+          <button class="close-modal">Close</button>
+        </div>
+      </div>
+
+      <!-- ORDER MODAL -->
+      <div class="modal" id="orderModal">
+        <div class="modal-content">
+          <h2><i class="fas fa-shopping-cart"></i> Create Order</h2>
+
+          <label>Select Customer</label>
+          <select id="orderCustomer">
+            <option value="">Select Customer</option>
+          </select>
+
+          <label>Select Product</label>
+          <select id="orderProduct">
+            <option value="">Select Product</option>
+          </select>
+
+          <label>Quantity</label>
+          <input type="number" id="orderQty" min="1" value="1">
+
+          <label>Total Price (£)</label>
+          <input type="text" id="orderTotal" readonly>
+
+          <button class="save-btn" id="saveOrder">Create Order</button>
+          <button class="close-modal">Close</button>
+        </div>
+      </div>
+
+      <!-- REPORT MODAL -->
+      <div class="modal" id="reportModal">
+        <div class="modal-content">
+          <h2><i class="fas fa-chart-line"></i> Reports</h2>
+
+          <label>Report Type</label>
+          <select id="reportType">
+            <option value="sales">Sales Report</option>
+            <option value="customers">Customer Report</option>
+            <option value="products">Product Report</option>
+            <option value="inventory">Inventory Report</option>
+          </select>
+
+          <label>Date Range</label>
+          <input type="date" id="reportStart">
+          <input type="date" id="reportEnd">
+
+          <button class="save-btn" id="generateReport">Generate Report</button>
+          <button class="close-modal">Close</button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  
+  <!-- Scripts (Correct Order) -->
+  <script src="dashboard.js"></script>
+  <script src="script.js"></script>
+  <script src="theme.js"></script>
+
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+  </script>
+
+  <div id="toast"></div>
+   <!-- Footer -->
+    <footer>
+      © 2026 FreshMart Management System
+      <br><br>
+      Developed by Fatima Qamar
+    </footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory | FreshMart</title>
+
+    <script src="auth.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme.css">
+</head>
+
+<body class="page-inventory">
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <div class="sidebar-logo">
+            <img src="assets/logos/logo-light.svg" alt="FreshMart Logo">
+            <h2>FreshMart</h2>
+            <p>Mini Shop System</p>
+        </div>
+
+        <ul class="sidebar-menu">
+            <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="products.html"><i class="fas fa-box-open"></i> Products</a></li>
+            <li><a href="customers.html"><i class="fas fa-users"></i> Customers</a></li>
+            <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+            <li><a href="reports.html"><i class="fas fa-chart-line"></i> Reports</a></li>
+
+            <!-- FIXED: Inventory is now highlighted -->
+            <li class="active"><a href="inventory.html"><i class="fas fa-warehouse"></i> Inventory</a></li>
+
+         <li><a href="settings.html"><i class="fas fa-sliders-h"></i> Settings</a></li>
+        </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+        <main class="content">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+                <div>
+                    <h2><i class="fas fa-warehouse"></i> Inventory Management</h2>
+                    <p class="subtitle">Monitor stock levels across your store.</p>
+                </div>
+
+                   <button class="theme-toggle" id="darkToggle">
+            <span class="icon"><i class="fas fa-circle-half-stroke"></i></span>
+<span class="text">Theme</span>
+
+          </button>
+
+                <button onclick="logout()">Logout</button>
+            </header>
+
+            <!-- INVENTORY DASHBOARD -->
+            <section class="inventory-dashboard">
+
+                <div class="card">
+                    <h3><i class="fas fa-box-open"></i> Total Items</h3>
+                    <h1 class="number">86</h1>
+                    <p>Products in inventory</p>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-check-circle"></i> In Stock</h3>
+                    <h1 class="number">74</h1>
+                    <p>Available products</p>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-exclamation-circle"></i> Low Stock</h3>
+                    <h1 class="number">10</h1>
+                    <p>Need restocking soon</p>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-times-circle"></i> Out of Stock</h3>
+                    <h1 class="number">2</h1>
+                    <p>Unavailable products</p>
+                </div>
+
+                <!-- Toolbar -->
+                <div class="toolbar">
+                   <div class="search-bar">
+  <input type="text" placeholder="Search Inventory" />
+  <i class="fas fa-search"></i>
+</div>
+
+                    <button><i class="fas fa-sync-alt"></i> Restock Selected</button>
+                </div>
+
+                <!-- Inventory Table -->
+                <table class="product-table" id="inventoryTable">
+                    <tr>
+                        <th>Product</th>
+                        <th>Stock</th>
+                        <th>Status</th>
+                        <th>Shelf</th>
+                        <th>Supplier</th>
+                        <th>Last Restocked</th>
+                    </tr>
+                </table>
+
+            </section>
+
+        </main>
+    </div>
+
+</div>
+
+<script src="inventory.js"></script>
+<script src="theme.js"></script>
+
+</body>
+</html>

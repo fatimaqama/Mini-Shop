@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FreshMart Orders</title>
+
+    <!-- LOGIN PROTECTION -->
+    <script src="auth.js" defer></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="orders.css">
+        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link id="favicon" rel="icon" type="image/svg+xml" href="assets/logos/icons/favicon.svg">
+
+    <!-- Theme -->
+    <script src="theme.js" defer></script>
+
+    <!-- Orders JS MUST load AFTER HTML -->
+    <script src="orders.js" defer></script>
+</head>
+
+<body class="orders-page">
+
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <div class="sidebar-logo">
+            <img src="assets/logos/logo-light.svg" alt="FreshMart Logo" class="logo-glow">
+            <h2>FreshMart</h2>
+            <p>Mini Shop System</p>
+        </div>
+
+        <ul class="sidebar-menu">
+            <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="products.html"><i class="fas fa-box-open"></i> Products</a></li>
+            <li><a href="customers.html"><i class="fas fa-users"></i> Customers</a></li>
+            <li class="active"><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+            <li><a href="reports.html"><i class="fas fa-chart-line"></i> Reports</a></li>
+            <li><a href="inventory.html"><i class="fas fa-warehouse"></i> Inventory</a></li>
+           <li><a href="settings.html"><i class="fas fa-sliders-h"></i> Settings</a></li>
+        </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+
+        <!-- TOPBAR -->
+        <div class="topbar">
+            <h1><i class="fas fa-shopping-cart"></i> Orders</h1>
+
+            <div class="topbar-buttons">
+                      <button class="theme-toggle" id="darkToggle">
+            <span class="icon"><i class="fas fa-circle-half-stroke"></i></span>
+<span class="text">Theme</span>
+
+          </button>
+
+                <button class="logout-btn" onclick="logout()">
+                    Logout
+                </button>
+            </div>
+        </div>
+
+        <!-- PAGE CONTENT -->
+        <main class="content">
+<!-- ORDERS OVERVIEW CARD -->
+<div class="orders-overview-card">
+  <h2><i class="fas fa-chart-line"></i> Orders Overview</h2>
+
+  <div class="orders-kpi-grid">
+    <div class="orders-kpi-card">
+      <h3><i class="fas fa-shopping-cart"></i> Total Orders</h3>
+      <p id="kpiTotalOrders">0</p>
+      <span>Total orders placed</span>
+    </div>
+
+    <div class="orders-kpi-card">
+      <h3><i class="fas fa-clock"></i> Pending</h3>
+      <p id="kpiPendingOrders">0</p>
+      <span>Orders awaiting completion</span>
+    </div>
+
+    <div class="orders-kpi-card">
+      <h3><i class="fas fa-check-circle"></i> Completed</h3>
+      <p id="kpiCompletedOrders">0</p>
+      <span>Orders successfully delivered</span>
+    </div>
+  </div>
+</div>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <div class="toolbar-left"></div>
+
+  <div class="toolbar-actions">
+    <input id="orderSearch" placeholder="Search orders...">
+    <select id="orderFilter">
+      <option value="all">All Status</option>
+      <option value="Pending">Pending</option>
+      <option value="Packed">Packed</option>
+      <option value="Shipped">Shipped</option>
+      <option value="Delivered">Delivered</option>
+    </select>
+    <button id="openOrderModal" class="toolbar-btn">+ Add Order</button>
+  </div>
+</div>
+
+<!-- ORDERS TABLE FLOATING CARD -->
+<div class="orders-table-card">
+  <table id="ordersTable">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Customer</th>
+        <th>Total (£)</th>
+        <th>Status</th>
+        <th>Payment</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<!-- ORDER MODAL -->
+<div class="modal" id="orderModal">
+    <div class="modal-content">
+        <span class="close-modal" id="closeOrderModal">&times;</span>
+
+        <h2 id="orderModalTitle">Add Order</h2>
+
+        <label>Customer</label>
+        <select id="orderCustomer"></select>
+
+        <label>Payment Method</label>
+        <select id="orderPayment">
+            <option value="Card">Card</option>
+            <option value="Cash">Cash</option>
+            <option value="Online">Online</option>
+            <option value="Apple Pay">Apple Pay</option>
+            <option value="Google Pay">Google Pay</option>
+        </select>
+
+        <label>Status</label>
+        <select id="orderStatus">
+            <option value="Pending">Pending</option>
+            <option value="Packed">Packed</option>
+            <option value="Shipped">Shipped</option>
+            <option value="Delivered">Delivered</option>
+        </select>
+
+        <label>Tax Rate (%)</label>
+        <input id="orderTaxRate" type="number" value="10">
+
+        <label>Discount Rate (%)</label>
+        <input id="orderDiscountRate" type="number" value="0">
+
+        <div class="order-items-summary">
+            <div>Subtotal: <span id="summarySubtotal">£0.00</span></div>
+            <div>Tax: <span id="summaryTax">£0.00</span></div>
+            <div>Discount: <span id="summaryDiscount">£0.00</span></div>
+            <div class="summary-total">Total: <span id="summaryTotal">£0.00</span></div>
+        </div>
+
+        <button id="openItemsModal" class="secondary-btn">Manage Items</button>
+        <button id="saveOrder" class="primary-btn">Save Order</button>
+    </div>
+</div>
+
+
+<!-- ITEMS MODAL -->
+<div class="modal" id="itemsModal">
+    <div class="modal-content wide">
+        <span class="close-modal" id="closeItemsModal">&times;</span>
+
+        <h2>Order Items</h2>
+
+        <div class="items-toolbar">
+            <input id="itemProductInput" placeholder="Search product...">
+            <button id="addItemBtn" class="primary-btn">+ Add Item</button>
+        </div>
+
+        <table id="itemsTable">
+            <thead>
+                <tr>
+                    <th>SKU</th>
+                    <th>Product</th>
+                    <th>Qty</th>
+                    <th>Price (£)</th>
+                    <th>Total (£)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <div class="items-footer">
+            <div>Subtotal: <span id="itemsSubtotal">£0.00</span></div>
+        </div>
+
+        <button id="itemsDoneBtn" class="primary-btn">Done</button>
+    </div>
+   
+</div>
+  <div id="toast"></div>
+</body>
+</html>

@@ -1,0 +1,1167 @@
+
+
+/* =========================================================
+   FRESHMART — DARK MODE THEME (LUXE UPGRADE)
+   Built on your existing premium base
+========================================================= */
+
+/* Global transitions */
+body {
+  transition: background-color 0.4s ease,
+              color 0.4s ease,
+              filter 0.4s ease,
+              box-shadow 0.4s ease;
+}
+
+
+/* Root background */
+body.dark {
+  background: radial-gradient(circle at top left, #0f0f0f 0%, #121212 100%);
+  color: #e8e8e8;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.3px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* =========================================================
+   DARK MODE — HEADINGS & TYPOGRAPHY (CLEAN PREMIUM)
+========================================================= */
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6 {
+  font-weight: 700;
+background: linear-gradient(90deg, #00695c 0%, #ffe9a0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #fdd835; /* fallback */
+  text-shadow:
+    0 0 1px rgba(253,216,53,0.25),
+    0 0 2px rgba(24,169,153,0.25);
+  letter-spacing: 0.3px;
+  transition: text-shadow 0.25s ease, transform 0.25s ease;
+}
+
+/* Hover shimmer — subtle, not messy */
+body.dark h2:hover,
+body.dark h3:hover {
+  text-shadow:
+    0 0 4px rgba(253,216,53,0.35),
+    0 0 6px rgba(24,169,153,0.3);
+  transform: scale(1.015);
+}
+
+/* Gentle pulse only for main page title */
+@keyframes shimmerPulse {
+  0% { text-shadow: 0 0 2px rgba(253,216,53,0.25); }
+  50% { text-shadow: 0 0 4px rgba(24,169,153,0.35); }
+  100% { text-shadow: 0 0 2px rgba(253,216,53,0.25); }
+}
+
+body.dark h1 {
+  animation: shimmerPulse 3s infinite ease-in-out;
+}
+/* =========================================================
+   DARK MODE — SIDEBAR
+========================================================= */
+body.dark .sidebar {
+  background: linear-gradient(180deg, #161616 0%, #0f0f0f 100%);
+  border-right: 1px solid rgba(24,169,153,0.25);
+  box-shadow: inset 0 0 25px rgba(24,169,153,0.2);
+  transition: all 0.3s ease;
+}
+
+body.dark .sidebar:hover {
+  box-shadow: inset 0 0 35px rgba(24,169,153,0.35);
+}
+
+body.dark .sidebar-menu a {
+  color: #e8e8e8;
+  font-weight: 500;
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+body.dark .sidebar-menu a:hover,
+body.dark .sidebar-menu .active a {
+  background: #fdd835;
+  color: #161616;
+  box-shadow: 0 0 12px rgba(253,216,53,0.35);
+}
+
+/* =========================================================
+   DARK MODE — TOPBAR
+========================================================= */
+body.dark .topbar {
+  background: linear-gradient(90deg, #1c1c1c 0%, #0f0f0f 100%);
+  border-bottom: 1px solid rgba(24,169,153,0.25);
+  box-shadow: 0 4px 20px rgba(24,169,153,0.25);
+  transition: all 0.3s ease;
+}
+
+/* =========================================================
+   FINAL DARK MODE OVERRIDES — PROFESSIONAL VERSION
+========================================================= */
+
+/* GLOBAL BACKGROUND */
+body.dark,
+body.dark .main,
+body.dark .content-wrapper,
+body.dark .dashboard {
+  background: #212b27 !important;          /* matte charcoal */
+  color: #e8e8e8 !important;               /* clean neutral text */
+}
+
+/* GLOBAL PANELS & CARDS */
+body.dark .card,
+body.dark .overview-cards .card,
+body.dark .dashboard .card,
+body.dark .quick-actions,
+body.dark .recent-activity,
+body.dark .stock-overview,
+body.dark .modal-content,
+body.dark .table-container {
+  background:  #0b0b0b  !important;         /* slightly lighter than background */
+  border: 1px solid rgba(24,169,153,0.25) !important; /* thin teal border */
+  border-radius: 16px !important;
+  box-shadow: 0 0 10px rgba(0,0,0,0.35) !important;   /* soft shadow, no glow */
+  color: #e8e8e8 !important;
+}
+
+/* TOPBAR SUBTITLE TEXT */
+body.dark .topbar p {
+  color: #9ea7a6 !important;               /* muted grey */
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  opacity: 0.75 !important;
+  margin-top: 4px !important;
+}
+/* =========================================================
+   DARK MODE — PROFESSIONAL BUTTONS
+========================================================= */
+
+body.dark button,
+body.dark .btn,
+body.dark .theme-toggle,
+body.dark .logout-btn {
+  background: #0f1f1d !important;          /* matte dark teal-black */
+  color: #fffdfd !important;               /* clean white text */
+  border: 1px solid rgba(244, 253, 252, 0.35) !important; /* thin teal border */
+  border-radius: 8px !important;
+  padding: 10px 18px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px !important;
+  box-shadow: none !important;             /* no glow */
+  transition: 0.25s ease !important;
+}
+
+/* Hover — subtle teal → yellow accent */
+body.dark button:hover,
+body.dark .btn:hover,
+body.dark .theme-toggle:hover,
+body.dark .logout-btn:hover {
+  background: #18A999 !important;          /* teal fill */
+  color: #0f0f0f !important;               /* dark text */
+  border-color: #FDD835 !important;        /* yellow border highlight */
+  box-shadow: 0 0 8px rgba(253,216,53,0.25) !important; /* tiny glow */
+  transform: translateY(-2px) !important;
+}
+
+/* GLOBAL TABLES */
+body.dark table,
+body.dark th,
+body.dark td {
+  background: rgba(18, 41, 39, 0.55) !important;
+  color: #e0f2f1 !important;
+  border-color: rgba(24,169,153,0.35) !important;
+}
+
+body.dark th {
+  background: #025043 !important;
+  color: #fdd835 !important;
+}
+
+body.dark tr:hover {
+  background: rgba(24,169,153,0.08) !important;
+}
+/* ===========================
+   DARK MODE — SIDEBAR ICONS
+=========================== */
+
+/* Base sidebar icons */
+body.dark .sidebar-menu i {
+  color: #fdd835 !important; /* FreshMart gold */
+  filter: drop-shadow(0 0 3px rgba(253,216,53,0.25)) !important;
+  transition: color 0.3s ease, filter 0.3s ease !important;
+}
+
+/* Hover and active link icons */
+body.dark .sidebar-menu li:hover i,
+body.dark .sidebar-menu li.active i {
+  color: #18A999 !important; /* teal accent on hover/active */
+  filter: drop-shadow(0 0 5px rgba(24,169,153,0.35)) !important;
+}
+
+/* Optional: sidebar logo icon or brand accent */
+body.dark .sidebar-logo i {
+  color: #fdd835 !important;
+  filter: drop-shadow(0 0 4px rgba(253,216,53,0.35)) !important;
+}
+/* ===========================
+   GLOBAL DARK MODE MODALS
+=========================== */
+body.dark .modal-content {
+  background: #121212 !important; /* deep charcoal */
+  color: #e8e8e8 !important; /* light text for readability */
+  border-radius: 16px !important;
+  border: 1px solid rgba(24,169,153,0.25) !important;
+  box-shadow: 0 0 25px rgba(24,169,153,0.25),
+              0 0 15px rgba(253,216,53,0.25) !important;
+  padding: 30px !important;
+}
+
+/* Modal header */
+body.dark .modal-content h2 {
+  font-weight: 700;
+  background: linear-gradient(90deg, #00695c 0%, #ffe9a0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #ffe9a0; /* fallback */
+  text-shadow: 0 0 2px rgba(255,233,160,0.25);
+}
+
+/* Labels */
+body.dark .modal-content label {
+  color: #18A999 !important;
+  font-weight: 600;
+}
+
+/* Inputs & selects */
+body.dark .modal-content input,
+body.dark .modal-content select {
+  background: #1a1a1a !important;
+  color: #e8e8e8 !important;
+  border: 1px solid rgba(24,169,153,0.35) !important;
+  border-radius: 8px !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark .modal-content input:focus,
+body.dark .modal-content select:focus {
+  border-color: #18A999 !important;
+  box-shadow: 0 0 0 3px rgba(24,169,153,0.3) !important;
+}
+
+/* Buttons */
+body.dark .modal-content .save-btn {
+  background: linear-gradient(90deg, #18A999 0%, #FDD835 100%) !important;
+  color: #184D3B !important;
+  font-weight: 700 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  box-shadow: 0 0 10px rgba(24,169,153,0.25) !important;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+body.dark .modal-content .save-btn:hover {
+  box-shadow: 0 0 15px rgba(253,216,53,0.45) !important;
+  transform: scale(1.03);
+}
+
+body.dark .modal-content .close-btn {
+  background: #1a1a1a !important;
+  color: #18A999 !important;
+  border: 1px solid rgba(24,169,153,0.35) !important;
+  border-radius: 8px !important;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark .modal-content .close-btn:hover {
+  background: #18A999 !important;
+  color: #121212 !important;
+}
+
+/* =========================================================
+   DARK MODE — BUTTON products customer  ICON GLOW (VISIBLE HOVER)
+========================================================= */
+
+/* Base icon style */
+body.dark button i {
+  color: #18A999 !important; /* teal base */
+  transition: color 0.25s ease, filter 0.25s ease;
+}
+
+/* General hover glow */
+body.dark button:hover i {
+  color: #40e0d0 !important; /* brighter teal on hover */
+  filter: drop-shadow(0 0 6px rgba(64,224,208,0.6)) !important;
+}
+
+/* Individual icon colours */
+body.dark .btn-theme i {
+  color: #fdd835 !important; /* gold for theme */
+}
+
+body.dark .btn-add-product i {
+  color: #18A999 !important; /* teal for add product */
+}
+
+body.dark .btn-reset-products i {
+  color: #ff5252 !important; /* red for reset */
+}
+
+body.dark .btn-add-customer i {
+  color: #fdd835 !important; /* gold for add customer */
+}
+
+/* Individual hover glow refinement */
+body.dark .btn-theme:hover i {
+  color: #fff176 !important; /* lighter gold */
+  filter: drop-shadow(0 0 8px rgba(255,241,118,0.6)) !important;
+}
+
+body.dark .btn-add-product:hover i {
+  color: #40e0d0 !important; /* bright teal */
+  filter: drop-shadow(0 0 8px rgba(64,224,208,0.6)) !important;
+}
+
+body.dark .btn-reset-products:hover i {
+  color: #ff867c !important; /* lighter red */
+  filter: drop-shadow(0 0 8px rgba(255,134,124,0.6)) !important;
+}
+
+body.dark .btn-add-customer:hover i {
+  color: #fff176 !important; /* lighter gold */
+  filter: drop-shadow(0 0 8px rgba(255,241,118,0.6)) !important;
+}
+
+/* =========================================================
+   DARK MODE — SEARCH BAR (PROFESSIONAL STYLE)
+========================================================= */
+
+body.dark .search-bar {
+  background: #0f0f0f !important; /* matte charcoal base */
+  border: 1px solid rgba(248, 250, 250, 0.25) !important; /* thin teal border */
+  border-radius: 10px !important;
+  box-shadow: none !important; /* remove glow */
+  padding: 6px 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+/* Focus state — subtle teal highlight */
+body.dark .search-bar:focus-within {
+  border-color: rgba(24,169,153,0.55) !important;
+  background: #121212 !important;
+}
+
+/* Input field */
+body.dark .search-bar input {
+  background: transparent !important;
+  color: #e8e8e8 !important;
+  font-size: 14px !important;
+  border: none !important;
+  outline: none !important;
+  flex: 1 !important;
+}
+
+/* Placeholder text — muted grey */
+body.dark .search-bar input::placeholder {
+  color: #9ea7a6 !important;
+  opacity: 0.7 !important;
+}
+
+/* Search icon — soft teal accent */
+body.dark .search-bar i {
+  color: #18A999 !important; /* teal icon */
+  font-size: 16px !important;
+  transition: color 0.3s ease;
+}
+
+/* Hover icon — subtle yellow tint */
+body.dark .search-bar i:hover {
+  color: #FDD835 !important;
+}
+/* =========================================================
+   DARK MODE — PROFILE CARD (COMPACT VERSION)
+========================================================= */
+
+body.dark .profile-card {
+  background: #0f1f1d !important; /* matte teal‑charcoal */
+  color: #fdd835 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 0 12px rgba(24,169,153,0.25) !important;
+  padding: 14px 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  width: 230px !important;   /* compact width */
+  height: 90px !important;   /* compact height */
+}
+
+/* Avatar — smaller, soft glow */
+body.dark .profile-card img {
+  width: 55px !important;
+  height: 55px !important;
+  border-radius: 50% !important;
+  box-shadow: 0 0 10px rgba(24,169,153,0.35) !important;
+}
+
+/* Name and role text */
+body.dark .profile-card .name {
+  color: #18A999 !important; /* teal name accent */
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+}
+
+body.dark .profile-card .role {
+  color: #9ea7a6 !important; /* muted grey role */
+  font-size: 0.85rem !important;
+  opacity: 0.8 !important;
+}
+
+/* ===========================
+   DARK MODE — FINAL DASHBOARD POLISH
+=========================== */
+
+/* Outer dashboard container */
+body.dark .dashboard-bottom,
+body.dark .dashboard-row,
+body.dark .dashboard-metrics,
+body.dark .overview-section {
+  background: linear-gradient(180deg, #0b0b0b 0%, #0f1f1d 100%) !important;
+  border-radius: 20px !important;
+  box-shadow:
+    inset 0 0 25px rgba(24,169,153,0.15),
+    0 0 25px rgba(0,0,0,0.4) !important;
+  color: #e8e8e8 !important;
+  padding: 30px !important;
+}
+
+/* Section titles */
+body.dark .section-title {
+  color: #fdd835 !important;
+  background: linear-gradient(90deg, rgba(24,169,153,0.15) 0%, rgba(253,216,53,0.15) 100%) !important;
+  box-shadow: 0 6px 18px rgba(24,169,153,0.15) !important;
+  border-radius: 12px !important;
+  padding: 10px 22px !important;
+  font-weight: 700 !important;
+  font-size: 1.8rem !important;
+  transition: all 0.3s ease !important;
+}
+
+body.dark .section-title:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 25px rgba(24,169,153,0.25) !important;
+  background: linear-gradient(90deg, rgba(24,169,153,0.25) 0%, rgba(253,216,53,0.25) 100%) !important;
+}
+
+/* ===========================
+   Quick Actions + Recent Activity
+=========================== */
+
+body.dark .quick-activity {
+  background: #121212 !important;
+  border: 1px solid rgba(24,169,153,0.25) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 0 15px rgba(0,0,0,0.35) !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  gap: 30px !important;
+  transition: 0.3s ease !important;
+}
+
+body.dark .quick-activity:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 28px rgba(24,169,153,0.25) !important;
+}
+
+/* Quick Actions */
+body.dark .quick-actions {
+  flex: 1 !important;
+}
+
+body.dark .quick-actions h2 {
+  color: #fdd835 !important;
+  font-size: 1.6rem !important;
+  margin-bottom: 20px !important;
+}
+
+body.dark .actions {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 15px !important;
+}
+
+/* Buttons */
+body.dark .btn-action {
+  background: #0f1f1d !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(24,169,153,0.35) !important;
+  border-radius: 10px !important;
+  padding: 12px 22px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+body.dark .btn-action:hover {
+  background: #18A999 !important;
+  color: #0b0b0b !important;
+  border-color: #FDD835 !important;
+  box-shadow: 0 6px 18px rgba(24,169,153,0.25) !important;
+}
+
+/* Recent Activity */
+body.dark .recent-activity {
+  flex: 1 !important;
+}
+
+body.dark .recent-activity h2 {
+  color: #fdd835 !important;
+  font-size: 1.6rem !important;
+  margin-bottom: 20px !important;
+}
+
+body.dark .recent-activity p {
+  background: #1a1a1a !important;
+  padding: 10px 14px !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25) !important;
+  margin-bottom: 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  color: #18A999 !important;
+  font-size: 15px !important;
+  transition: transform 0.2s ease, background 0.3s ease !important;
+}
+
+body.dark .recent-activity p:hover {
+  transform: translateY(-2px) !important;
+  background: #0f1f1d !important;
+}
+
+/* ===========================
+   Stock Overview
+=========================== */
+
+body.dark .stock-overview {
+  flex: 1 !important;
+  min-width: 400px !important;
+  background: #121212 !important;
+  border: 1px solid rgba(24,169,153,0.25) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35) !important;
+  padding: 25px !important;
+  transition: all 0.3s ease !important;
+}
+
+body.dark .stock-overview:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 28px rgba(24,169,153,0.25) !important;
+}
+
+body.dark .stock-overview canvas {
+  width: 100% !important;
+  height: 300px !important;
+  border-radius: 12px !important;
+  background: #0f1f1d !important; /* teal-charcoal canvas for chart visibility */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35) !important;
+  transition: box-shadow 0.3s ease, transform 0.3s ease !important;
+}
+
+body.dark .stock-overview:hover canvas {
+  box-shadow: 0 10px 25px rgba(24,169,153,0.25) !important;
+  transform: scale(1.02) !important;
+}
+
+/* Chart colours */
+body.dark .chart-line-teal { stroke: #18A999 !important; }
+body.dark .chart-line-yellow { stroke: #FDD835 !important; }
+body.dark .chart-line-green { stroke: #43A047 !important; }
+
+/* ===========================
+   Footer
+=========================== */
+
+body.dark footer {
+  width: 100% !important;
+  text-align: center !important;
+  margin-top: 60px !important;
+  color: #e8e8e8 !important;
+  font-size: 15px !important;
+  padding: 25px 0 !important;
+  border-top: 3px solid rgba(24,169,153,0.25) !important;
+  background: #0f1f1d !important;
+  box-shadow: 0 -6px 18px rgba(24,169,153,0.15) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.3px !important;
+}
+
+
+
+/* ===========================
+   DARK MODE — STATUS BADGES
+=========================== */
+
+/* Base badge */
+body.dark .status-badge {
+  padding: 6px 12px !important;
+  border-radius: 10px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  background: #1a1a1a !important; /* matte inner layer */
+  color: #e8e8e8 !important;       /* neutral text */
+  border: 1px solid rgba(24,169,153,0.25) !important; /* thin teal border */
+}
+
+body.dark .status-badge i {
+  font-size: 16px !important;
+  color: #18A999 !important; /* teal icon */
+}
+
+/* ACTIVE — teal */
+body.dark .status-badge.active {
+  background: rgba(24,169,153,0.15) !important; /* soft teal tint */
+  color: #18A999 !important;
+  border-color: rgba(24,169,153,0.45) !important;
+}
+
+body.dark .status-badge.active i {
+  color: #18A999 !important;
+}
+
+/* INACTIVE — muted red */
+body.dark .status-badge.inactive {
+  background: rgba(198,40,40,0.15) !important; /* soft red tint */
+  color: #e57373 !important;                   /* muted red text */
+  border-color: rgba(198,40,40,0.35) !important;
+}
+
+body.dark .status-badge.inactive i {
+  color: #e57373 !important;
+}
+
+/* VIP — gold */
+body.dark .status-badge.vip {
+  background: rgba(253,216,53,0.15) !important; /* soft gold tint */
+  color: #fdd835 !important;                    /* gold text */
+  border-color: rgba(253,216,53,0.35) !important;
+}
+
+body.dark .status-badge.vip i {
+  color: #fdd835 !important;
+}
+/* ===========================================================
+   DARK MODE — ORDERS PAGE (FULL PROFESSIONAL THEME)
+=========================================================== */
+
+/* Page Background */
+body.dark .orders-page {
+  background: #0b0b0b !important;
+  min-height: 100vh !important;
+  padding: 30px !important;
+  color: #e8e8e8 !important;
+}
+
+/* ===========================
+   Toolbar
+=========================== */
+body.dark .toolbar {
+  background: #121212 !important;
+  padding: 20px !important;
+  border-radius: 14px !important;
+  border: 1px solid rgba(24,169,153,0.25) !important;
+  box-shadow: 0 0 15px rgba(0,0,0,0.35) !important;
+}
+
+body.dark .toolbar-actions input,
+body.dark .toolbar-actions select {
+  background: #1a1a1a !important;
+  color: #e8e8e8 !important;
+  border: 1px solid rgba(24,169,153,0.35) !important;
+  box-shadow: none !important;
+}
+
+/* Add Order Button */
+body.dark .toolbar-btn {
+  background: #18A999 !important;
+  color: #0b0b0b !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  transition: 0.25s ease !important;
+}
+
+body.dark .toolbar-btn:hover {
+  background: #FDD835 !important;
+  color: #0b0b0b !important;
+}
+
+/* ===========================
+   Orders Table
+=========================== */
+body.dark #ordersTable {
+  background: #121212 !important;
+  border-radius: 15px !important;
+  box-shadow: 0 0 20px rgba(0,0,0,0.35) !important;
+}
+
+body.dark #ordersTable th {
+  background: #025043 !important;
+  color: #fdd835 !important;
+}
+
+body.dark #ordersTable td {
+  color: #e8e8e8 !important;
+  border-bottom: 1px solid rgba(24,169,153,0.25) !important;
+}
+
+body.dark #ordersTable tr:hover {
+  background: rgba(24,169,153,0.15) !important;
+}
+
+/* ===========================
+   Floating Table Card
+=========================== */
+body.dark .orders-table-card {
+  background: #121212 !important;
+  border-radius: 18px !important;
+  border: 1px solid rgba(24,169,153,0.25) !important;
+  box-shadow: 0 0 25px rgba(0,0,0,0.45) !important;
+  padding: 25px !important;
+}
+
+body.dark .orders-table-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 0 35px rgba(24,169,153,0.35) !important;
+}
+
+body.dark .orders-table-card table {
+  background: #1a1a1a !important;
+}
+
+body.dark .orders-table-card th {
+  background: #025043 !important;
+  color: #fdd835 !important;
+}
+
+body.dark .orders-table-card td {
+  color: #e8e8e8 !important;
+  border-bottom: 1px solid rgba(24,169,153,0.25) !important;
+}
+
+body.dark .orders-table-card tr:hover {
+  background: rgba(24,169,153,0.15) !important;
+}
+
+/* ===========================
+   Status Badges (Dark Mode)
+=========================== */
+body.dark .status-badge {
+  padding: 6px 12px !important;
+  border-radius: 999px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  background: #1a1a1a !important;
+  color: #e8e8e8 !important;
+  border: 1px solid rgba(24,169,153,0.25) !important;
+}
+
+/* Pending */
+body.dark .status-Pending {
+  background: rgba(253,216,53,0.15) !important;
+  color: #fdd835 !important;
+}
+
+/* Packed */
+body.dark .status-Packed {
+  background: rgba(24,169,153,0.15) !important;
+  color: #18A999 !important;
+}
+
+/* Shipped */
+body.dark .status-Shipped {
+  background: rgba(0,105,92,0.2) !important;
+  color: #4db6ac !important;
+}
+
+/* Delivered */
+body.dark .status-Delivered {
+  background: rgba(46,125,50,0.2) !important;
+  color: #81c784 !important;
+}
+
+
+/* =========================================================
+   DARK MODE — ORDERS OVERVIEW SECTION
+========================================================= */
+
+/* Overview container */
+body.dark .orders-overview-card {
+  background: #121212 !important;
+  border-radius: 18px !important;
+  border: 1px solid rgba(24,169,153,0.25) !important;
+  box-shadow: 0 0 25px rgba(0,0,0,0.45) !important;
+  padding: 30px !important;
+}
+
+/* Overview title (Orders Overview) */
+body.dark .orders-overview-card h2 {
+  font-weight: 700;
+  background: linear-gradient(90deg, #00695c 0%, #ffe9a0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #ffe9a0; /* fallback */
+  text-shadow: 0 0 2px rgba(255,233,160,0.25);
+  letter-spacing: 0.4px;
+}
+
+/* KPI cards */
+body.dark .orders-kpi-card {
+  background: #1a1a1a !important;
+  border-left: 6px solid #18A999 !important;
+  color: #e8e8e8 !important;
+  box-shadow: 0 0 20px rgba(0,0,0,0.35) !important;
+  transition: all 0.3s ease !important;
+}
+
+body.dark .orders-kpi-card:hover {
+  border-left-color: #ffe9a0 !important;
+  box-shadow: 0 0 25px rgba(255,233,160,0.25) !important;
+}
+
+/* KPI headings (Total Orders, Pending, Completed) */
+body.dark .orders-kpi-card h3 {
+  font-weight: 600;
+  background: linear-gradient(90deg, #00695c 0%, #ffe9a0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #ffe9a0; /* fallback */
+  text-shadow: 0 0 1px rgba(255,233,160,0.25);
+}
+
+/* KPI numbers */
+body.dark .orders-kpi-card h1,
+body.dark .orders-kpi-card .number {
+  color: #ffe9a0 !important;
+  text-shadow: 0 0 3px rgba(255,233,160,0.25);
+}
+
+/* KPI descriptions */
+body.dark .orders-kpi-card p {
+  color: #18A999 !important;
+  font-weight: 500;
+}
+
+/* KPI divider lines */
+body.dark .orders-kpi-card span {
+  border-top: 2px solid #ffe9a0 !important;
+}
+
+/* ===========================
+   Orders Page Topbar
+=========================== */
+body.dark .orders-page .topbar {
+  background: #121212 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(24,169,153,0.25) !important;
+  color: #e8e8e8 !important;
+}
+/* ===========================================================
+   DARK MODE — REPORTS PAGE (FULL PROFESSIONAL THEME)
+=========================================================== */
+
+/* Page wrapper */
+body.dark .reports-page {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 30px !important;
+  margin-top: 20px !important;
+  background: #0b0b0b !important;
+  color: #e8e8e8 !important;
+}
+
+/* ===========================
+   Chart Card (Main Report Chart)
+=========================== */
+body.dark .reports-page .chart-card,
+body.dark .reports-page .reports-chart-card {
+  background: #121212 !important; /* matte panel */
+  padding: 25px !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(24,169,153,0.25) !important; /* thin teal border */
+  box-shadow: 0 0 20px rgba(0,0,0,0.45) !important;
+  width: 100% !important;
+  max-width: 950px !important;
+  margin: 30px auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  transition: 0.3s ease !important;
+}
+
+/* Hover lift */
+body.dark .reports-page .reports-chart-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 0 28px rgba(24,169,153,0.35) !important;
+}
+
+/* Chart title */
+body.dark .reports-page .reports-chart-card h3 {
+  color: #fdd835 !important; /* gold heading */
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  margin-bottom: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+/* Chart canvas */
+body.dark .reports-page .reports-chart-card canvas,
+body.dark .reports-page .chart-card canvas {
+  width: 100% !important;
+  height: 400px !important;
+  border-radius: 12px !important;
+  background: #0f1f1d !important; /* teal-charcoal canvas */
+  box-shadow: 0 0 15px rgba(0,0,0,0.45) !important;
+  transition: 0.3s ease !important;
+}
+
+/* Hover canvas glow */
+body.dark .reports-page .reports-chart-card:hover canvas {
+  box-shadow: 0 0 25px rgba(24,169,153,0.35) !important;
+  transform: scale(1.02) !important;
+}
+
+/* ===========================
+   KPI Row
+=========================== */
+body.dark .reports-page .kpi-row {
+  display: flex !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 25px !important;
+}
+
+/* KPI Cards */
+body.dark .reports-page .card {
+  background: #1a1a1a !important;
+  border-radius: 16px !important;
+  border-left: 6px solid #18A999 !important; /* teal accent */
+  box-shadow: 0 0 15px rgba(0,0,0,0.45) !important;
+  padding: 25px !important;
+  width: 220px !important;
+  transition: 0.3s ease !important;
+  color: #e8e8e8 !important;
+}
+
+/* KPI hover */
+body.dark .reports-page .card:hover {
+  transform: translateY(-4px) !important;
+  border-left-color: #FDD835 !important; /* gold accent */
+}
+
+/* KPI text */
+body.dark .reports-page .card h3 {
+  color: #fdd835 !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  margin-bottom: 10px !important;
+}
+
+body.dark .reports-page .card p {
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  color: #18A999 !important; /* teal numbers */
+}
+
+body.dark .reports-page .card span {
+  display: block !important;
+  font-size: 13px !important;
+  color: #9ea7a6 !important;
+  border-top: 2px solid #FDD835 !important;
+  width: fit-content !important;
+  padding-top: 4px !important;
+}
+/* ===========================
+  CHART CARD
+=========================== */
+body.dark.reports-page .reports-chart-card,
+body.dark.reports-page .chart-card {
+  background: #121212 !important;
+  border: 1px solid rgba(24,169,153,0.25) !important;
+  box-shadow: 0 0 20px rgba(0,0,0,0.45) !important;
+}
+
+body.dark.reports-page .reports-chart-card h3,
+body.dark.reports-page .chart-card h3 {
+  color: #fdd835 !important;
+}
+
+body.dark.reports-page .reports-chart-card h3 i,
+body.dark.reports-page .chart-card h3 i {
+  color: #18A999 !important;
+}
+
+body.dark.reports-page .reports-chart-card canvas,
+body.dark.reports-page .chart-card canvas {
+  background: #0f1f1d !important;
+  box-shadow: 0 0 15px rgba(0,0,0,0.45) !important;
+  border-radius: 12px !important;
+}
+
+
+/* ============================
+   DARK MODE — SETTINGS PAGE
+============================ */
+
+/* Page background */
+body.dark {
+  background: #121212 !important; /* matte charcoal */
+  color: #e8e8e8 !important;
+}
+
+/* Sidebar */
+body.dark .sidebar {
+  background: #0d0d0d !important;
+  border-right: 1px solid rgba(24,169,153,0.25) !important;
+  box-shadow: 2px 0 15px rgba(24,169,153,0.15) !important;
+}
+
+/* Sidebar icons */
+body.dark .nav-links li a i {
+  color: #18A999 !important; /* mint teal */
+  transition: color 0.3s ease, filter 0.3s ease;
+}
+
+body.dark .nav-links li a:hover i {
+  color: #FDD835 !important; /* gold on hover */
+  filter: drop-shadow(0 0 8px rgba(253,216,53,0.45)) !important;
+}
+
+body.dark .nav-links li.active a i {
+  color: #FDD835 !important;
+  filter: drop-shadow(0 0 6px rgba(253,216,53,0.35)) !important;
+}
+
+/* Sidebar link hover background */
+body.dark .nav-links li a:hover,
+body.dark .nav-links li.active a {
+  background: rgba(24,169,153,0.25) !important;
+  border-radius: 8px !important;
+  transform: translateX(4px);
+  box-shadow: 0 0 10px rgba(24,169,153,0.4) !important;
+}
+
+/* ===========================
+   DARK MODE — GLOBAL BACKGROUND FIX
+=========================== */
+
+/* Root and main content */
+body.dark,
+body.dark .main-content,
+body.dark .settings-container {
+  background: #121212 !important; /* matte charcoal */
+  color: #e8e8e8 !important;
+}
+
+/* ============================
+   DARK MODE — SIDEBAR (SETTINGS PAGE)
+============================ */
+body.dark .sidebar {
+  background: #0d0d0d !important; /* matte black */
+  border-right: 1px solid rgba(24,169,153,0.25) !important;
+  box-shadow: 2px 0 15px rgba(24,169,153,0.15) !important;
+}
+
+/* Logo glow */
+body.dark .logo img {
+  filter: drop-shadow(0 0 12px rgba(253,216,53,0.6)) !important;
+}
+
+body.dark .logo h3 {
+  color: #FDD835 !important;
+}
+
+body.dark .logo .tagline {
+  color: #A5C9C1 !important;
+}
+
+/* Sidebar icons */
+body.dark .nav-links li a i {
+  color: #FDD835 !important; /* gold icons */
+  transition: color 0.3s ease, filter 0.3s ease;
+}
+
+/* Hover glow */
+body.dark .nav-links li a:hover i {
+  color: #18A999 !important; /* teal hover */
+  filter: drop-shadow(0 0 8px rgba(24,169,153,0.45)) !important;
+}
+
+/* Active item */
+body.dark .nav-links li.active a {
+  background: #FDD835 !important;
+  color: #0d0d0d !important;
+  border-radius: 8px !important;
+  box-shadow: 0 0 10px rgba(253,216,53,0.45) !important;
+}
+
+body.dark .nav-links li.active a i {
+  color: #18A999 !important; /* teal icon inside active */
+}
+
+/* Hover background shimmer */
+body.dark .nav-links li a:hover {
+  background:   #FDD835!important;
+  border-radius: 8px !important;
+  transform: translateX(4px);
+  box-shadow: 0 0 10px rgba(24,169,153,0.4) !important;
+}
+
+/* ============================
+   DARK MODE — SETTINGS CARDS
+============================ */
+body.dark .setting-card {
+  background: #1a1a1a !important; /* deep neutral */
+  color: #e0f2f1 !important;
+  box-shadow:
+    0 0 18px rgba(24,169,153,0.25),
+    0 0 10px rgba(253,216,53,0.15) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+body.dark .setting-card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 0 25px rgba(24,169,153,0.35),
+    0 0 15px rgba(253,216,53,0.25) !important;
+}
+/* ============================
+   DARK MODE — SETTINGS CARD TEXT
+============================ */
+body.dark .setting-card p {
+  color: #49c9a5 !important; /* lighter teal for visibility */
+  opacity: 1 !important;
+  font-weight: 500 !important;
+  transition: color 0.3s ease;
+}
+
+/* Optional hover shimmer for subtle glow */
+body.dark .setting-card:hover p {
+  color: #6FFFD8 !important; /* soft glow teal */
+  text-shadow: 0 0 6px rgba(111,255,216,0.4);
+}
+
+
+

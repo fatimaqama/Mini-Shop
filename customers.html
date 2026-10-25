@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Customers | FreshMart</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link id="favicon" rel="icon" type="image/svg+xml" href="assets/logos/icons/favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body class="customers-page">
+
+
+<div class="app">
+<nav class="sidebar">
+  <div class="sidebar-logo">
+    <img src="assets/logos/logo-light.svg" alt="FreshMart Logo" class="logo-glow">
+    <h2>FreshMart</h2>
+    <p>Mini Shop System</p>
+  </div>
+
+  <ul class="sidebar-menu">
+    <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+    <li><a href="products.html"><i class="fas fa-box-open"></i> Products</a></li>
+   <li class="active">
+  <a href="customers.html"><i class="fas fa-users"></i> Customers</a>
+</li>
+
+    <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+    <li><a href="reports.html"><i class="fas fa-chart-line"></i> Reports</a></li>
+    <li><a href="inventory.html"><i class="fas fa-warehouse"></i> Inventory</a></li>
+    <li><a href="settings.html"><i class="fas fa-sliders-h"></i> Settings</a></li>
+  </ul>
+</nav>
+
+
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div>
+                <h2><i class="fas fa-users"></i> Customer Management</h2>
+                <p class="subtitle">Manage customer records and loyalty members.</p>
+            </div>
+
+            <div style="display:flex; gap:10px;">
+                    <button class="theme-toggle" id="darkToggle">
+            <span class="icon"><i class="fas fa-circle-half-stroke"></i></span>
+<span class="text">Theme</span>
+
+          </button>
+                </button>
+                <button onclick="logout()">Logout</button>
+            </div>
+        </header>
+
+        <!-- STATS -->
+<!-- STATS -->
+<section class="dashboard">
+  <div class="card">
+    <h3><i class="fas fa-users"></i> Total Customers</h3>
+    <h1 id="customerCount">2</h1>
+    <p>Registered customers</p>
+  </div>
+
+  <div class="card">
+    <h3><i class="fas fa-id-card"></i> Loyalty Members</h3>
+    <h1 id="loyaltyCount">0</h1>
+    <p>FreshMart Rewards</p>
+  </div>
+
+<div class="card">
+  <h3><i class="fas fa-user-plus"></i> New This Month</h3>
+  <h1 id="newCustomersCard" class="number">0</h1>
+  <p>Recently joined</p>
+</div>
+
+</section>
+
+
+</section>
+
+        <!-- TOOLBAR -->
+        <div class="toolbar">
+            <button id="openCustomerModal">
+  <i class="fa-solid fa-user-plus"></i> Add Customer
+</button>
+
+
+         <div class="search-bar">
+  <input type="text" placeholder="Search Customers" />
+  <i class="fas fa-search"></i>
+</div>
+
+        <!-- CUSTOMER TABLE -->
+        <table class="product-table" id="customerTable">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Orders</th>
+                <th>Loyalty</th>
+                <th>Actions</th>
+            </tr>
+        </table>
+
+    </main>
+</div>
+
+<!-- ADD CUSTOMER MODAL -->
+<div class="modal" id="customerModal">
+    <div class="modal-content">
+        <h2><i class="fas fa-user-plus"></i> Add Customer</h2>
+
+        <label>Full Name</label>
+        <input type="text" id="customerName">
+
+        <label>Email</label>
+        <input type="email" id="customerEmail">
+
+        <label>Phone Number</label>
+        <input type="text" id="customerPhone">
+
+        <label>Address</label>
+       <input type="text" id="customerAddress" placeholder="Address">
+
+        <label>Number of Orders</label>
+<input type="number" id="customerOrders" min="0" value="0">
+
+         <label>Customer Loyalty</label>
+<select id="customerLoyalty">
+  <option value="Active">Active</option>
+  <option value="Inactive">Inactive</option>
+  <option value="VIP">VIP</option>
+</select>
+
+
+        <button class="save-btn" id="saveCustomer">Save Customer</button>
+        <button class="close-modal">Close</button>
+    </div>
+</div>
+
+</div>
+<!-- Footer -->
+    <footer>
+      © 2026 FreshMart Management System
+      <br><br>
+      Developed by Fatima Qamar
+    </footer>
+
+
+<script src="customers.js"></script>
+<script src="theme.js"></script>
+
+<script>
+    window.addEventListener("load", () => {
+        document.body.classList.add("loaded");
+    });
+</script>
+
+</body>
+</html>
