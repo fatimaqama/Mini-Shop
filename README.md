@@ -1,24 +1,43 @@
-# FreshMart Management System 🛒
+# FreshMart – Retail Management System
 
-**Fresh Retail. Smarter Management.**
-
-FreshMart is a retail management web application developed as part of my software engineering portfolio. It provides a simple interface for managing products, customers, stock and orders.
+FreshMart is a mini-shop management web application designed to help manage products, customers, orders and stock through a simple dashboard.
 
 ## Features
-- Product and customer management
-- Add, edit, delete and search functionality
-- Stock tracking and dashboard statistics
-- Order management and reporting sections
-- Dark and light theme options
+
+- **Dashboard** – View key shop statistics and management information.
+- **Product Management** – Manage products, categories and stock levels.
+- **Customer Management** – Add, search and delete customer records.
+- **Order Management** – Organise and manage shop orders.
+- **Reports** – Provide an organised view of retail information.
+- **Settings** – Access application settings and appearance options.
+- **Theme Support** – Switch between light and dark modes.
 
 ## Technologies Used
-- HTML5
-- CSS3
-- JavaScript
-- Microsoft Access (for my BTEC IT coursework database)
 
-## What I Learned
-Developing FreshMart helped me build practical skills in web development, database design, data management, user interface design and problem-solving.
+- HTML
+- CSS
+- JavaScript
+- Microsoft Access (database coursework)
 
 ## Project Status
-I created a retail database using Microsoft Access as part of my BTEC IT coursework, including queries and reports covering stock levels, customer activity and sales. I also developed the FreshMart website to demonstrate my front-end development skills. These projects support my ongoing development towards a career in software engineering.
+
+FreshMart was developed as a software development portfolio project alongside my IT coursework. I also created a Microsoft Access database as part of my coursework, developing my understanding of database design, tables, queries, forms and reports.
+
+The web application includes its main interface and management features, with further development and database integration opportunities.
+
+## How to Run
+
+1. Download or clone this repository.
+2. Open the project folder in Visual Studio Code.
+3. Open `index.html` in your browser, or use the Live Server extension.
+4. Explore the available management sections through the sidebar.
+
+## Purpose
+
+This project demonstrates my skills in front-end web development, JavaScript, interface design, retail management systems and database concepts. It forms part of my portfolio as I work towards a degree apprenticeship in software engineering.
+
+---
+
+**Project:** FreshMart  
+**Type:** Retail Management Web Application  
+**Developer:** Fatima Qamar
